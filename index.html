@@ -1,35 +1,30 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Estações do ano</title>
     <link rel="stylesheet" href="src/css/style.css">
     <script src="src/js/index.js" defer></script>
-
 </head>
 <body>
     <h1>Estações do ano</h1>
     <div class="topo">
         <div>
-            <label for="">Informe o mês: </label>
+            <label for="i_mes">Informe o mês: </label>
             <input type="number" name="i_mes" id="i_mes"
-                min="1" max="12" value="1" style="width: 6em"
-                onchange = calcula_estacao()
-            > 
+                min="1" max="12" placeholder="1-12" style="width: 6em"
+                onchange="calcula_estacao()"> 
         </div>    
         
-        <div class = "resultados">
-            <label id = "nome_mes">??</label>            
+        <div class="resultados">
+            <label id="nome_mes">Selecione um mês</label>            
             <label id="nome_estacao">??</label>                     
-            <!--<label id="nome_cor">??</label> -->            
         </div>
-
-
     </div>
 
-    <div class="estacoes" id = "estacoes">
-        <div class = "cores_est">
+    <div class="estacoes" id="estacoes">
+        <div class="cores_est">
             <div class="cor">?</div>
             <div class="cor">?</div>
             <div class="cor">?</div>
@@ -38,22 +33,19 @@
         </div>
 
         <div class="estacao primavera">
-            <img src="./images/primavera.png" alt="">
+            <img src="src/images/primavera.png" alt="Primavera" class="imagem-estacao">
         </div>
         <div class="estacao verão">
-            <img src="./images/verao.png" alt="">
+            <img src="src/images/verao.png" alt="Verão" class="imagem-estacao">
         </div>
         <div class="estacao outono">
-            <img src="./images/outono.png" alt="">
+            <img src="src/images/outono.png" alt="Outono" class="imagem-estacao">
         </div>
         <div class="estacao inverno">
-            <img src="./images/inverno.png" alt="">
-
+            <img src="src/images/inverno.png" alt="Inverno" class="imagem-estacao">
         </div>
-        
-
     </div>
 
-    <label for=""id ="fonte_img" >fonte imagem: https://vestindoautoestima.com.br/wp-content/uploads/2021/01/as-cartelas-de-coloracao-pessoal-e-as-estacoes-do-ano.jpg</label>    
+    <label id="fonte_img">fonte imagem: https://vestindoautoestima.com.br/wp-content/uploads/2021/01/as-cartelas-de-coloracao-pessoal-e-as-estacoes-do-ano.jpg</label>    
 </body>
 </html>

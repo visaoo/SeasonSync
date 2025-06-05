@@ -1,77 +1,84 @@
-*{
-    font-size: 30px;
+* {
+    font-size: 20px;
 }
 
-body
-{
-    width: 600px;
-    height: 1200px;    
+body {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
     background-color: white;    
 }
 
-h1{
+h1 {
     font-size: 36px;
+    text-align: center;
 }
 
-.meses{
-    padding: 10px;
-    border: 1px solid black;
-    display: flex;
-    flex-direction: row;
-    width: 1000px;
-    /*width: 120px;*/
-}
-
-.titulo{
-    width: 100%;
-}
-
-.topo{
+.topo {
     width: 100%;
     height: auto;
-    
     display: flex;
     flex-direction: column;    
-    
+    margin-bottom: 20px;
 }
 
-.resultados{
-    width: 1200px;
+.resultados {
     padding: 15px;
-    
     display: flex;
     flex-direction: column;
     justify-content: space-around;
 }
 
-.cores_est{
-    width : 230px;
+.cores_est {
+    width: 100%;
     display: flex;
     flex-direction: column;
     justify-content: space-around;
+    margin-bottom: 20px;
 }
 
-.cor{
+.cor {
     border: 1px solid black;
-    height: 15%;
+    height: 50px;
     display: flex;
     justify-content: center;
     align-items: center;    
+    margin: 5px 0;
 }
 
-
-.estacoes{
-    width: 1500px;
-    margin:10px;
-    background-color: black;
+.estacoes {
+    width: 100%;
+    margin: 10px 0;
     padding: 10px;
     display: flex;
-    flex-direction: row; 
+    flex-wrap: wrap;
     justify-content: space-around;
-
+    gap: 20px;
 }
 
-.estacao{
-    /*padding: 15px;*/
-    padding-top: 100px;
+.estacao {
+    flex: 1;
+    min-width: 200px;
+    text-align: center;
+}
+
+.estacao img {
+    max-width: 100%;
+    height: auto;
+    transition: opacity 0.5s ease-in-out; 
+    filter: none !important; 
+}
+
+#i_mes {
+    padding: 5px;
+    font-size: 18px;
+    text-align: center;
+}
+
+#fonte_img {
+    font-size: 14px;
+    margin-top: 20px;
+    display: block;
+    text-align: center;
 }
