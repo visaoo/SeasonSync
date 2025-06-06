@@ -1,84 +1,296 @@
-* {
-    font-size: 20px;
+/* Importa a fonte JetBrains Mono do Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&display=swap');
+
+/* --- Reset Básico e Variáveis de Tema (Dark Mode) --- */
+:root {
+    /* Variáveis para o tema escuro */
+    --background-color: #1a1a2e; /* Azul escuro quase preto */
+    --text-color: #e0e0e0;      /* Cinza claro para o texto */
+    --primary-color: #007bff;   /* Azul para destaque */
+    --secondary-color: #6c757d; /* Cinza para elementos secundários */
+    --card-background: #20203a; /* Fundo dos cards */
+    --border-color: #333355;    /* Cor da borda mais escura */
+    --shadow-color: rgba(0, 0, 0, 0.3); /* Sombra mais escura */
+    --hover-background: #2a2a4e; /* Fundo ao passar o mouse */
+    --heading-color: #87ceeb; /* Azul claro para h1 */
 }
 
+/* Reset Universal */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'JetBrains Mono', monospace;
+}
+
+/* --- Estilos Globais e do Corpo --- */
 body {
+    background-color: var(--background-color);
+    color: var(--text-color);
     width: 100%;
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 20px;
-    background-color: white;    
+    max-width: 75rem;
+    margin: auto auto;
+    padding: 0px;
+    font-size: 18px;
+    line-height: 1.6;
+    overflow-x: hidden;
 }
 
+/* --- Títulos --- */
 h1 {
-    font-size: 36px;
+    font-size: 2.25rem;
     text-align: center;
+    color: var(--heading-color);
+    margin-bottom: 30px;
+    padding-top: 10px;
 }
 
+/* --- Seções de Layout Principais --- */
 .topo {
     width: 100%;
     height: auto;
     display: flex;
-    flex-direction: column;    
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
     margin-bottom: 20px;
+    background-color: var(--card-background);
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px var(--shadow-color);
+}
+
+.titulo {
+    width: 100%;
+    text-align: center;
 }
 
 .resultados {
+    width: 100%;
     padding: 15px;
     display: flex;
     flex-direction: column;
     justify-content: space-around;
-}
-
-.cores_est {
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
+    background-color: var(--card-background);
+    border-radius: 8px;
+    box-shadow: 0 4px 8px var(--shadow-color);
     margin-bottom: 20px;
 }
 
-.cor {
-    border: 1px solid black;
-    height: 50px;
-    display: flex;
-    justify-content: center;
-    align-items: center;    
-    margin: 5px 0;
-}
-
-.estacoes {
-    width: 100%;
-    margin: 10px 0;
+/* --- Seção de Meses --- */
+.meses {
     padding: 10px;
+    border: 1px solid var(--border-color);
     display: flex;
     flex-wrap: wrap;
+    flex-direction: row;
+    width: 100%;
+    justify-content: space-around;
+    align-items: center;
+    margin-bottom: 20px;
+    background-color: var(--background-color);
+    border-radius: 8px;
+    gap: 8px;
+}
+
+.mes {
+    padding: 8px 12px;
+    background-color: var(--primary-color);
+    color: #fff;
+    border-radius: 5px;
+    font-size: 0.9em;
+    white-space: nowrap;
+}
+
+/* --- Seção de Cores e Estações --- */
+.cores_est {
+    width: 230px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    background-color: var(--card-background);
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px var(--shadow-color);
+    margin-bottom: 20px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.cor {
+    border: 1px solid var(--border-color);
+    height: 70px; 
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    padding-left: 15px;
+    margin: 5px 0;
+    border-radius: 5px;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    cursor: pointer;
+    background-color: var(--background-color);
+    text-shadow: var(--background-color) 1px 1px 2px;
+}
+
+.cor:hover {
+    background-color: var(--hover-background);
+    transform: translateY(-2px);
+}
+
+.cor img {
+    width: 40px;
+    height: 40px;
+    margin-right: 15px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid var(--primary-color);
+}
+
+/* --- Seção de Estações --- */
+.estacoes {
+    width: 100%;
+    margin: 50px auto;
+    background-color: var(--card-background);
+    padding: 15px;
+    display: flex;
+    flex-wrap: nowrap;
+    flex-direction: row;
     justify-content: space-around;
     gap: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px var(--shadow-color);
 }
 
 .estacao {
     flex: 1;
-    min-width: 200px;
+    min-width: 220px;
+    max-width: 300px;
+    padding: 15px;
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    background-color: var(--background-color);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
     text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+.estacao:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 12px var(--shadow-color);
 }
 
 .estacao img {
     max-width: 100%;
     height: auto;
-    transition: opacity 0.5s ease-in-out; 
-    filter: none !important; 
+    display: block;
+    border-radius: 5px;
+    transition: opacity 0.5s ease-in-out;
+    filter: none !important;
+    border: 2px solid var(--heading-color);
 }
 
+.estacao .nome-estacao {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: var(--text-color);
+}
+
+/* --- Elementos Específicos --- */
 #i_mes {
-    padding: 5px;
-    font-size: 18px;
+    padding: 10px;
+    font-size: 1.1rem;
     text-align: center;
+    background-color: var(--text-color);
+    color: #fff;
+    border-radius: 5px;
+    margin-top: 15px;
+    box-shadow: 0 2px 4px var(--shadow-color);
 }
 
 #fonte_img {
-    font-size: 14px;
-    margin-top: 20px;
+    font-size: 0.85rem;
+    margin-top: 25px;
     display: block;
     text-align: center;
+    color: var(--secondary-color);
+}
+
+/* --- Responsividade --- */
+@media (max-width: 850px) {
+    body {
+        padding: 15px;
+    }
+
+    h1 {
+        font-size: 2rem;
+    }
+
+    .cores_est {
+        width: 80%;
+    }
+
+    .estacao {
+        min-width: 180px;
+        width: calc(50% - 15px);
+    }
+}
+
+@media (max-width: 600px) {
+    body {
+        font-size: 16px;
+        padding: 10px;
+    }
+
+    h1 {
+        font-size: 1.8rem;
+    }
+
+    .topo, .resultados, .meses, .cores_est, .estacoes {
+        padding: 10px;
+        margin-bottom: 15px;
+    }
+
+    .cores_est {
+        width: 95%;
+    }
+
+    .cor {
+        height: 60px;
+        padding-left: 10px;
+        margin: 5px 0;
+    }
+
+    .cor img {
+        width: 35px;
+        height: 35px;
+        margin-right: 10px;
+    }
+
+    .estacao {
+        width: 90%;
+        max-width: 300px;
+        padding: 10px;
+    }
+
+    .estacao img {
+        width: 70px;
+        height: 70px;
+    }
+
+    .estacao .nome-estacao {
+        font-size: 1.1rem;
+    }
+}
+
+@media (max-width: 400px) {
+    .estacao {
+        min-width: unset;
+        width: 100%;
+    }
 }

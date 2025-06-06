@@ -38,7 +38,7 @@ const inverno = [
 ];
 
 let i_estacao = 0;
-let vet_estacao = [];
+let station_array = [];
 let intervalo;
 let indiceCorBackground = 0;
 
@@ -58,7 +58,7 @@ function calcula_estacao() {
     elementoExibeMes.textContent = "Mês inválido";
     elementoExibeEstacao.textContent = "??";
     todasImagensEstacao.forEach(img => img.style.opacity = "0.3");
-    vet_estacao = [];
+    station_array = [];
     coresEstacao();
     return;
   }
@@ -69,19 +69,19 @@ function calcula_estacao() {
 
   if (numeroDoMes >= 9 && numeroDoMes <= 11) {
     i_estacao = 0;
-    vet_estacao = primavera;
+    station_array = primavera;
     nomeEstacaoAtual = estacao_ano_nomes[0];
   } else if (numeroDoMes === 12 || numeroDoMes === 1 || numeroDoMes === 2) {
     i_estacao = 1;
-    vet_estacao = verao;
+    station_array = verao;
     nomeEstacaoAtual = estacao_ano_nomes[1];
   } else if (numeroDoMes >= 3 && numeroDoMes <= 5) {
     i_estacao = 2;
-    vet_estacao = outono;
+    station_array = outono;
     nomeEstacaoAtual = estacao_ano_nomes[2];
   } else {
     i_estacao = 3;
-    vet_estacao = inverno;
+    station_array = inverno;
     nomeEstacaoAtual = estacao_ano_nomes[3];
   }
 
@@ -105,33 +105,37 @@ function coresEstacao() {
   const elementoBackgroundEstacao = document.getElementById('estacoes');
 
   elementosDisplayCor.forEach((elemento, index) => {
-    if (vet_estacao && vet_estacao[index]) {
-      elemento.textContent = vet_estacao[index].nome;
-      elemento.style.backgroundColor = vet_estacao[index].cor;
+    if (station_array && station_array[index]) {
+      elemento.textContent = station_array[index].nome;
+      elemento.style.backgroundColor = station_array[index].cor;
     } else {
       elemento.textContent = "?";
-      elemento.style.backgroundColor = "white";
+      elemento.style.backgroundColor = "#333355";
     }
   });
 
-  if (elementoBackgroundEstacao && vet_estacao && vet_estacao.length > 0) {
-    elementoBackgroundEstacao.style.backgroundColor = vet_estacao[indiceCorBackground].cor;
-    indiceCorBackground = (indiceCorBackground + 1) % vet_estacao.length;
+  if (elementoBackgroundEstacao && station_array && station_array.length > 0) {
+    elementoBackgroundEstacao.style.backgroundColor = station_array[indiceCorBackground].cor;
+    indiceCorBackground = (indiceCorBackground + 1) % station_array.length;
   } else if (elementoBackgroundEstacao) {
-    elementoBackgroundEstacao.style.backgroundColor = "white";
+    elementoBackgroundEstacao.style.backgroundColor = "#333355";
   }
 }
 
 
+/*
+  * Adiciona o evento de clique ao botão
+  * para calcular a estação e as cores.
+*/
 window.onload = function() {
   const elementosDisplayCor = document.querySelectorAll('.cor');
   elementosDisplayCor.forEach(elemento => {
     elemento.textContent = "?";
-    elemento.style.backgroundColor = "white";
+    elemento.style.backgroundColor = "#333355";
   });
   
-  const todasImagensEstacao = document.querySelectorAll('.imagem-estacao');
-  todasImagensEstacao.forEach(img => {
+  const imagensEstacoes = document.querySelectorAll('.imagem-estacao');
+  imagensEstacoes.forEach(img => {
     img.style.opacity = "0.3";
   });
 };
