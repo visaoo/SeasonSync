@@ -1,7 +1,3 @@
-Perfeito\! Vamos criar um `README.md` que descreva seu sistema dinâmico e responsivo com tema dark, utilizando apenas HTML, CSS e JavaScript.
-
------
-
 # 🎨 Estações & Cores: Seu Guia Sazonal\! 🗓️
 
 Este é um **sistema web simples, dinâmico e responsivo** que identifica a estação do ano (verão ☀️, outono 🍂, inverno ❄️ ou primavera 🌷) com base no mês atual ou selecionado, e exibe uma paleta de cores em destaque para cada estação.
